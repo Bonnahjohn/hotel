@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, depend_on_referenced_packages
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hotels/pages/auth/signin.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -100,6 +101,10 @@ class _FormsControlState extends State<FormsControl> {
               TextFormField(
                 autocorrect: true,
                 decoration: InputDecoration(
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.white,
+                    ),
                     prefixIcon: Icon(
                       Icons.lock_outline,
                       color: Colors.white,
@@ -213,7 +218,7 @@ class _FormsControlState extends State<FormsControl> {
                             style: TextStyle(color: Colors.amber),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Get.snackbar('Still waiting', 'Ogya');
+                                Get.to(() => Signin());
                               })
                       ]),
                 ),

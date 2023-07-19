@@ -136,7 +136,7 @@ class _ForminState extends State<Formin> {
                               EdgeInsets.symmetric(
                                   vertical: 18, horizontal: 70))),
                       onPressed: () {
-                        Get.to(() => Myhome());
+                        Get.off(() => Myhome());
                       },
                       child: Text(
                         'Log In',

@@ -44,23 +44,6 @@ class _MyhomeState extends State<Myhome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-              onPressed: () {
-                Get.snackbar(
-                    colorText: Colors.white,
-                    snackPosition: SnackPosition.TOP,
-                    backgroundColor: Colors.teal,
-                    'Is just a dummy',
-                    'It is where the notification will shows up');
-              },
-              icon: Icon(Icons.notifications_active))
-        ],
-      ),
-      drawer: Drawer(backgroundColor: Colors.amber.withOpacity(0.9)),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: SingleChildScrollView(

@@ -1,8 +1,9 @@
-// ignore_for_file: unused_import, depend_on_referenced_packages, prefer_const_constructors
+// ignore_for_file: unused_import, depend_on_referenced_packages, prefer_const_constructors, avoid_unnecessary_containers, avoid_print
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:hotels/pages/configuration.dart';
+import 'package:hotels/pages/detail_screen.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -16,12 +17,28 @@ class _MainHomeState extends State<MainHome> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.all(12),
+        padding: EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
-          //mainAxisSize: MainAxisSize.min,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    )),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.notifications_active,
+                      color: Colors.white,
+                    )),
+              ],
+            ),
             SizedBox(
               height: 70,
             ),
@@ -69,6 +86,14 @@ class _MainHomeState extends State<MainHome> {
               leading: Text('Hotel Paradise',
                   style: TextStyle(color: Colors.white, fontSize: 20)),
               trailing: Text('See More', style: TextStyle(color: Colors.white)),
+              onTap: () {
+                Get.snackbar(
+                    colorText: Colors.white,
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.teal,
+                    'Is just a dummy',
+                    'There wil be a page for users to see all the available house.');
+              },
             ),
             SizedBox(
               height: 220,
@@ -82,7 +107,12 @@ class _MainHomeState extends State<MainHome> {
                       mainAxisSpacing: 20),
                   itemBuilder: (context, index) => EachProduct(
                         product: menus[index],
-                        press: () {},
+                        press: () {
+                          Get.to(() => DetailScreen(
+                                product: menus[index],
+                                key: GlobalKey(),
+                              ));
+                        },
                       )),
             ),
           ],
@@ -104,12 +134,23 @@ class EachProduct extends StatefulWidget {
 class _EachProductState extends State<EachProduct> {
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(30),
-      child: Container(
-        child: Image.asset(
-          widget.product.image,
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Get.snackbar(
+            colorText: Colors.white,
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.teal,
+            'Is just a dummy',
+            'It is where the notification will shows up');
+        widget.press;
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: Container(
+          child: Image.asset(
+            widget.product.image,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

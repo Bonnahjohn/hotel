@@ -5,6 +5,8 @@ import 'dart:ffi';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import 'mainhome.dart';
+
 class Myhome extends StatefulWidget {
   const Myhome({super.key});
 
@@ -14,11 +16,22 @@ class Myhome extends StatefulWidget {
 
 class _MyhomeState extends State<Myhome> {
   static List<Widget> EachPage = [
-    Text('1'),
-    Text('2'),
-    Text('3'),
-    Text('4'),
-    Text('5')
+    MainHome(),
+    Center(
+        child: Text(
+      'DUMMY PAGE',
+      style: TextStyle(color: Colors.white),
+    )),
+    Center(
+        child: Text(
+      'DUMMY PAGE',
+      style: TextStyle(color: Colors.white),
+    )),
+    Center(
+        child: Text(
+      'DUMMY PAGE',
+      style: TextStyle(color: Colors.white),
+    )),
   ];
   int Counter = 0;
 
@@ -31,55 +44,29 @@ class _MyhomeState extends State<Myhome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.snackbar(
+                    colorText: Colors.white,
+                    snackPosition: SnackPosition.TOP,
+                    backgroundColor: Colors.teal,
+                    'Is just a dummy',
+                    'It is where the notification will shows up');
+              },
+              icon: Icon(Icons.notifications_active))
+        ],
+      ),
       drawer: Drawer(backgroundColor: Colors.amber.withOpacity(0.9)),
       backgroundColor: Colors.black,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: EachPage.elementAt(Counter)
-              //
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     SizedBox(
-              //       height: 70,
-              //     ),
-              //     Text(
-              //       'Hi  Daniyal',
-              //       style: TextStyle(color: Colors.white, fontSize: 22),
-              //     ),
-              //     Text(
-              //       'Find your hotel to stay',
-              //       style: TextStyle(color: Colors.white, fontSize: 16),
-              //     ),
-              //     SizedBox(
-              //       height: 30,
-              //     ),
-              //     TextFormField(
-              //       autocorrect: true,
-              //       decoration: InputDecoration(
-              //           suffixIcon: Icon(
-              //             Icons.sort_by_alpha,
-              //             color: Colors.white,
-              //           ),
-              //           prefixIcon: Icon(
-              //             Icons.search,
-              //             color: Colors.white,
-              //           ),
-              //           hintText: 'Search here',
-              //           hintStyle: TextStyle(color: Colors.white),
-              //           contentPadding:
-              //               EdgeInsets.symmetric(vertical: 19, horizontal: 20),
-              //           fillColor: Colors.white24,
-              //           filled: true,
-              //           border: OutlineInputBorder(
-              //               borderSide: BorderSide.none,
-              //               borderRadius: BorderRadius.all(Radius.circular(20)))),
-              //     ),
-              //   ],
-              // ),
-              ),
+              child: EachPage.elementAt(Counter)),
         ),
       ),
       bottomNavigationBar: Padding(

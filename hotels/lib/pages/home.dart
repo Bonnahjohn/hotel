@@ -4,6 +4,7 @@ import 'dart:ffi';
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:hotels/pages/profile.dart';
 
 import 'mainhome.dart';
 
@@ -27,11 +28,7 @@ class _MyhomeState extends State<Myhome> {
       'DUMMY PAGE',
       style: TextStyle(color: Colors.white),
     )),
-    Center(
-        child: Text(
-      'DUMMY PAGE',
-      style: TextStyle(color: Colors.white),
-    )),
+    Profile()
   ];
   int Counter = 0;
 

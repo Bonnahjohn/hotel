@@ -142,7 +142,7 @@ class _EachProductState extends State<EachProduct> {
             backgroundColor: Colors.teal,
             'Is just a dummy',
             'It is where the notification will shows up');
-        widget.press;
+        widget.press();
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),

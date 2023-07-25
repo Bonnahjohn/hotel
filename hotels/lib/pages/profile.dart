@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, depend_on_referenced_packages
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -170,6 +170,7 @@ class Payment extends StatefulWidget {
 
 class _PaymentState extends State<Payment> {
   int radios = 1;
+  bool isSwitch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

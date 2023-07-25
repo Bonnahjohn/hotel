@@ -136,12 +136,6 @@ class _EachProductState extends State<EachProduct> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.snackbar(
-            colorText: Colors.white,
-            snackPosition: SnackPosition.TOP,
-            backgroundColor: Colors.teal,
-            'Is just a dummy',
-            'It is where the notification will shows up');
         widget.press();
       },
       child: ClipRRect(
